@@ -67,6 +67,26 @@ Runnable updateTextRunnable = new Runnable() {
         });
         dialog.create().show();
     }
+//Open a SimpleDialog
+
+    public void onClickOpenDialog(View v) {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_custom);
+
+        dialog.findViewById(R.id.dialog_custom_btnClose).setOnClickListener(
+                new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+        dialog.show();
+
+    }
+}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
