@@ -1,5 +1,7 @@
 package com.example.morvinshah.lifecycle;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -43,9 +45,27 @@ Runnable updateTextRunnable = new Runnable() {
         startActivity(new Intent(this,ActivityB.class));
     }
 
-    public void OnClickSimpleDialog (View v)
+    public void OnClickCloseApp (View v)
     {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle(getString(R.string.App_Name));
+        dialog.setMessage(getString(R.string.Message_to_Close));
+        dialog.setPositiveButton(R.string.Yes_Button);
 
+        new DialogInterface.OnClickListener();{
+            @Override
+        public void onClick(DialogInterface dialog, int which){
+                finish();
+            }
+        };
+
+        dialog.setNegativeButton(R.string.No_Button),
+        new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which){
+                dialog.dismiss();
+            }
+        });
+        dialog.create().show();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
